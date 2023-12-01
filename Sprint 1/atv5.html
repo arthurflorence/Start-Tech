@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+
+</head>
+
+<body>
+    <script>
+
+        function obterAnoAtual() {
+            return new Date().getFullYear();
+        }
+
+        function mostrarCabecalho() {
+            document.write("<h1>Listagem de Clientes - Ano " + obterAnoAtual() + "</h1>");
+            document.write("<hr>");
+        }
+
+
+        function mostrarConteudo() {
+
+            document.write("<p>Estatística do Ano " + obterAnoAtual() + ": Total de clientes - 100</p>");
+        }
+
+        function mostrarRodape() {
+            document.write("<hr>");
+            document.write("<footer>");
+            document.write("<h4><strong>.:: Alura LEVEL UP ::.</strong></h4>");
+            document.write("</footer>");
+        }
+
+        function exibirPagina() {
+            mostrarCabecalho();
+            mostrarConteudo();
+            mostrarRodape();
+        }
+
+        exibirPagina();
+    </script>
+</body>
+
+</html>

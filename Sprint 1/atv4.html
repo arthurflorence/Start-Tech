@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exercicio 4</title>
+
+</head>
+
+<body>
+    <script>
+
+        function obterAnoAtual() {
+            return new Date().getFullYear();
+        }
+
+        function exibirListagemClientes() {
+
+            var anoAtual = obterAnoAtual();
+
+            document.write("<h1>Listagem de Clientes - Ano " + anoAtual + "</h1>");
+
+            document.write("<p>Estatística do Ano " + anoAtual + ": Total de clientes - 100</p>");
+        }
+
+        exibirListagemClientes();
+    </script>
+</body>
+
+</html>
