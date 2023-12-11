@@ -21,7 +21,7 @@
 
        function    mostrarCabecalho() {
             document.write("<h1> COMEX </h1>")
-            document.write("<h2> .::Lista de Clientes::.</h2>");
+            document.write("<h2> Lista de Clientes</h2>");
             document.write("<hr>");
         }
 
@@ -33,7 +33,6 @@
                 let anoNascimento = prompt("Qual o ano de nascimento do cliente "+ counter +" ?")
                 let idade = anoAtual - anoNascimento
                 
-                // printing user data
                 document.write("<h2> - Código: " + counter + "</h2>")
                 skipLine();
                 document.write("Nome: " + nome);
@@ -43,7 +42,6 @@
                 document.write("Ano de Nascimento: " + anoNascimento);
                 document.write("<hr>");
 
-                //adding user mostrarEstatisticass for later printing
                 idadesTotal += idade;
             }
         }
@@ -57,7 +55,7 @@
         }
 
         function mostrarRodape() {
-            document.write("<footer><br><hr><p><b>&#46;&#58;&#58;Alura LEVEL UP&#58;&#58;&#46;</b></p></footer>");
+            document.write("<br><hr><p>.::Alura LEVEL UP::.</p>");
         }
 
         mostrarCabecalho();
