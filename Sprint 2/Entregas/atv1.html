@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação Etária dos Clientes</title>
+</head>
+<body>
+
+<script>
+    document.write ("<h1> COMEX </h1>")
+
+    var anoAtual = prompt("Digite o ano atual:");
+
+    // Verificar se o usuário clicou em "Cancelar" ou não forneceu um valor válido
+    if (anoAtual === null || isNaN(anoAtual)) {
+        alert("Ano inválido. Por favor, recarregue a página e insira um ano válido.");
+    } else {
+        // Converte o ano atual para um número inteiro
+        anoAtual = parseInt(anoAtual);
+
+        // Lista de clientes com informações de nome e ano de nascimento
+        var clientes = [
+            { nome: "Cliente1", anoNascimento: 2000 },
+            { nome: "Cliente2", anoNascimento: 1985 },
+            // Adicione mais clientes conforme necessário
+        ];
+
+        // Função para calcular a idade e atribuir a classificação etária
+        function calcularIdadeEClassificar(cliente) {
+            var idade = anoAtual - cliente.anoNascimento;
+
+            if (idade <= 17) {
+                cliente.classificacaoEtaria = "ADOLESCENTE";
+            } else if (idade >= 18 && idade <= 29) {
+                cliente.classificacaoEtaria = "JOVEM";
+            } else if (idade >= 30 && idade <= 59) {
+                cliente.classificacaoEtaria = "ADULTO";
+            } else {
+                cliente.classificacaoEtaria = "IDOSO";
+            }
+        }
+
+        // Iterar sobre a lista de clientes e calcular a idade/classificação etária
+        for (var i = 0; i < clientes.length; i++) {
+            calcularIdadeEClassificar(clientes[i]);
+        }
+
+        // Exibir os resultados
+        for (var i = 0; i < clientes.length; i++) {
+            console.log(clientes[i].nome + ": " + clientes[i].classificacaoEtaria);
+        }
+    }
+</script>
+
+</body>
+</html>
