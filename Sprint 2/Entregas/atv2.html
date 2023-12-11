@@ -1,0 +1,71 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <script>
+        // Variables.
+        let anoAtual = parseInt(prompt("Insira o ano atual: "));
+        let numeroClientes = parseInt(prompt("Quantos clientes? "));
+        let idadesTotal = 0;
+        let counter = 0;
+        
+        // Functions
+        function skipLine() {
+            document.write("<br>")
+        }
+
+       function    mostrarCabecalho() {
+            document.write("<h1> COMEX </h1>")
+            document.write("<h2> .::Lista de Clientes::.</h2>");
+            document.write("<hr>");
+        }
+
+        function clientes() {
+            while (counter < numeroClientes) {
+                counter++;
+                let nome = prompt("Qual o nome do " + counter +"° cliente")
+                let mesNascimento = prompt("Qual o mês de nascimento do cliente "+  counter +" ?")
+                let anoNascimento = prompt("Qual o ano de nascimento do cliente "+ counter +" ?")
+                let idade = anoAtual - anoNascimento
+                
+                // printing user data
+                document.write("<h2> - Código: " + counter + "</h2>")
+                skipLine();
+                document.write("Nome: " + nome);
+                skipLine()
+                document.write("Mês de Nascimento: " + mesNascimento);
+                skipLine()
+                document.write("Ano de Nascimento: " + anoNascimento);
+                document.write("<hr>");
+
+                //adding user mostrarEstatisticass for later printing
+                idadesTotal += idade;
+            }
+        }
+
+        function mostrarEstatisticas() {
+            document.write("ESTATISTICA ")
+            skipLine();
+            document.write("Soma de Idades: " + idadesTotal)
+            skipLine();
+            document.write("Média das Idades: " + Math.round(idadesTotal/numeroClientes));
+        }
+
+        function mostrarRodape() {
+            document.write("<footer><br><hr><p><b>&#46;&#58;&#58;Alura LEVEL UP&#58;&#58;&#46;</b></p></footer>");
+        }
+
+        mostrarCabecalho();
+        clientes();
+        mostrarEstatisticas();
+        mostrarRodape();
+
+    </script>
+</body>
+
+</html>

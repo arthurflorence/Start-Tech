@@ -1,57 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classificação Etária dos Clientes</title>
+    <title>Classificação Etária</title>
 </head>
+
 <body>
 
-<script>
-    document.write ("<h1> COMEX </h1>")
+    <script>
+        
+        function pulaLinha() {
+            document.write("<br>")
+        }
 
-    var anoAtual = prompt("Digite o ano atual:");
+        let currentYear = prompt("Digite o ano atual")
 
-    // Verificar se o usuário clicou em "Cancelar" ou não forneceu um valor válido
-    if (anoAtual === null || isNaN(anoAtual)) {
-        alert("Ano inválido. Por favor, recarregue a página e insira um ano válido.");
-    } else {
-        // Converte o ano atual para um número inteiro
-        anoAtual = parseInt(anoAtual);
+        function mostrarCabecalho() {
+            document.write("<h1> COMEX </h1>")
+            document.write("<h2> Lista de Clientes</h2>")
+        }
 
-        // Lista de clientes com informações de nome e ano de nascimento
-        var clientes = [
-            { nome: "Cliente1", anoNascimento: 2000 },
-            { nome: "Cliente2", anoNascimento: 1985 },
-            // Adicione mais clientes conforme necessário
-        ];
+        function mostrarConteudo(codigo, nome, mesNascimento, anoNascimento, ageNumber) {
+            document.write("<hr>");
+            document.write("<h2>&#45; Código: " + codigo + "</h2>")
+            document.write("Nome&#58; " + nome);
+            pulaLinha()
+            document.write("Mês de nascimento&#58 " + mesNascimento);
+            pulaLinha()
+            document.write("Ano de nascimento&#58; " + anoNascimento)
+            pulaLinha();
+            document.write("Caracteristica Etária: " + classEtaria(ageNumber))
+        }
 
-        // Função para calcular a idade e atribuir a classificação etária
-        function calcularIdadeEClassificar(cliente) {
-            var idade = anoAtual - cliente.anoNascimento;
+        function mostrarRodape() {
+            document.write("<footer><br><hr><p><b>&#46;&#58;&#58;Alura LEVEL UP&#58;&#58;&#46;</b></p></footer>")
+        }
 
-            if (idade <= 17) {
-                cliente.classificacaoEtaria = "ADOLESCENTE";
-            } else if (idade >= 18 && idade <= 29) {
-                cliente.classificacaoEtaria = "JOVEM";
-            } else if (idade >= 30 && idade <= 59) {
-                cliente.classificacaoEtaria = "ADULTO";
-            } else {
-                cliente.classificacaoEtaria = "IDOSO";
+        function nascimento(birthYear) {
+            return (currentYear - birthYear)
+        }
+
+        function classEtaria(age) {
+            if (age <= 17) {
+                return "ADOLESCENTE"
+            }
+
+            if (age >= 18 && age <= 29) {
+                return "JOVEM"
+            }
+
+            if (age >= 30 && age <= 59) {
+                return "ADULTO"
+            }
+
+            if (age >= 60) {
+                return "IDOSO"
             }
         }
 
-        // Iterar sobre a lista de clientes e calcular a idade/classificação etária
-        for (var i = 0; i < clientes.length; i++) {
-            calcularIdadeEClassificar(clientes[i]);
-        }
+        let clientes = [
+            {
+                cod: 1,
+                name: "Arthur",
+                birth: "Janeiro",
+                birthYear: 2003
+            },
+            {
+                cod: 2,
+                name: "Giovanna",
+                birth: "Abril",
+                birthYear: 1980
+            },
+            {
+                cod: 3,
+                name: "Enzo",
+                birth: "Novembro",
+                birthYear: 1950
+            }
+        ];
 
-        // Exibir os resultados
-        for (var i = 0; i < clientes.length; i++) {
-            console.log(clientes[i].nome + ": " + clientes[i].classificacaoEtaria);
-        }
-    }
-</script>
+        mostrarCabecalho();
 
+        mostrarConteudo(clientes[0].cod, clientes[0].name, clientes[0].birth, clientes[0].birthYear, classEtaria(clientes[0].birthYear));
+
+        mostrarConteudo(clientes[1].cod, clientes[1].name, clientes[1].birth, clientes[1].birthYear, classEtaria(clientes[1].birthYear));
+
+        mostrarConteudo(clientes[2].cod, clientes[2].name, clientes[2].birth, clientes[2].birthYear, classEtaria(clientes[2].birthYear));
+
+        mostrarRodape();
+
+    </script>
 </body>
+
 </html>
